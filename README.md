@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+tsconfig.json  - configuration file for TS 
+tailwind.config - tailwind 
+postcss.config.mjs - to process css from different plugins
+package.lock
+package.json
+next-env.d.ts - ts declaration for nextjs 
+next.config.ts - configure next js features
+gitignore -
+exlintrc.json - configure linting options
 
-## Getting Started
+public
+    static assests
+    nodemodules
+app
+    page.tsx - writing the code 
+    fonts - to store fonts 
+    globals.css
+    layout.tsx - anything we do here will be applied to all 
 
-First, run the development server:
+NOTE - 
+    1.By defautl the comoponnent is server side 
+    2.CLient side componennts are pre-rendered on server side and then hydrated
+    3.error boundaries shoulw be client side rendered
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Concepts -
+    1.Route Groups - 
+        Organizing routes into groups.
+        This allows you to organize your route segments and project files into logical groups without affecting the URL path structure.
+    2.Error -
+        displays error closest to its route. meaning global-error.tsx and error.tsx of particular route 
+        both wont show same errors
+    3.ServerComponentHMRcache
+        the fetch requests in server side are cached across HMR
+        serverside rendering leads to better seo optimization as crawlers can access content easily
+    3.Server Side generation
+        the result is cached and pushed during build time.
+        good for documentation,posts and blogs.not good for website requiring frequent user updates 
+        otherwise we have to go for incremental static regeneration(ISR) extension of SSR. 
+        Also check about PPR latest stratgergy.Combines static and dynamic parts of the webpage automatically, which is static content and which requires frequent updates 
